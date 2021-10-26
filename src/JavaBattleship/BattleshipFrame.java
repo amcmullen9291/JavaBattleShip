@@ -1,7 +1,7 @@
 package JavaBattleship;
 
 import javax.swing.*;
-import java.awt.Color;
+import java.awt.*;
 
 public class BattleshipFrame extends JFrame {
 
@@ -10,13 +10,16 @@ public class BattleshipFrame extends JFrame {
     BattleshipFrame(){
         panel = new BattleshipPanel();
         this.add(panel);
-        this.setTitle("Battle Ship");
+        this.setTitle("Battleship");
         this.setResizable(false);
         this.setBackground(Color.decode("#03fc98"));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setVisible(true);
-        this.setLocationRelativeTo(null);
+
     }
+
+
+
 
 }

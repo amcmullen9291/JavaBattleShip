@@ -8,20 +8,21 @@ import javax.swing.*;
 
 public class BattleshipPanel extends JPanel implements Runnable {
 
-    static final int GAME_WIDTH = 1000;
-    static final int GAME_HEIGHT = 1000;
+    static final int GAME_WIDTH = 600;
+    static final int GAME_HEIGHT = 400;
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH, GAME_HEIGHT);
-    static int aircraftCarrierX; //length=5
-    static int battleShipX; //length=4
-    static int destroyerX; //length=3
-    static int submarineX; //length=3
-    static int patrolBoatX; //length=
-    static int aircraftCarrierY; //length=5
-    static int battleShipY; //length=4
-    static int destroyerY; //length=3
-    static int submarineY; //length=3
-    static int patrolBoatY; //length=2
+    public static int aircraftCarrierX; //length=5
+    public static int battleShipX; //length=4
+    public static int destroyerX; //length=3
+    public static int submarineX; //length=3
+    public static int patrolBoatX; //length=
+    public static int aircraftCarrierY; //length=5
+    public static int battleShipY; //length=4
+    public static int destroyerY; //length=3
+    public static int submarineY; //length=3
+    public static int patrolBoatY; //length=2
 
+    GameBoard board;
     Ship airCraftCarrier;
     Ship battleShip;
     Ship destroyer;
@@ -54,6 +55,7 @@ public class BattleshipPanel extends JPanel implements Runnable {
     }
 
     public void newGame(){
+//        board = new GameBoard();
 //        airCraftCarrier = new Ship();
 //        battleShip = new Ship();
 //        destroyer = new Ship();
