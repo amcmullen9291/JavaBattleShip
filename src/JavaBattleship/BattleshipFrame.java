@@ -1,8 +1,6 @@
 package JavaBattleship;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -28,8 +26,20 @@ public class BattleshipFrame extends JPanel {
         theRules.setBackground(Color.BLUE);
         theRules.setForeground(Color.WHITE);
         theRules.setBounds(5, 5, 50, 30);
+        theRules.setFont(new Font("Arial", Font.PLAIN, 16));
         instructions.add(theRules);
 
+        JFrame motivation = new JFrame();
+        JButton theTalk = new JButton("<html><c>      'players approach the game as essentially <i>one of chance</i>, <br>" +
+                "   targeting squares at random and hoping for a “hit.”<br>" +
+                "   But... <u>is there a better strategy?'</u></c><html>");
+        motivation.setVisible(true);
+        motivation.setLocation(0,300);
+        motivation.setSize(390,300);
+        theTalk.setBounds(5, 5, 50, 30);
+        theTalk.setBorder(border);
+        motivation.add(theTalk);
+        theTalk.setFont(new Font("Arial", Font.PLAIN, 16));
         //Main window below
         setBackground(Color.decode("#03fc98"));
 //        setForeground(Color.decode("#03fc98"));
