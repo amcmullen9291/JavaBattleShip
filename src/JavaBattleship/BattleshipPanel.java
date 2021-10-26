@@ -22,7 +22,6 @@ public class BattleshipPanel extends JPanel implements Runnable {
     public static int submarineY; //length=3
     public static int patrolBoatY; //length=2
 
-    GameBoard board;
     Ship airCraftCarrier;
     Ship battleShip;
     Ship destroyer;
