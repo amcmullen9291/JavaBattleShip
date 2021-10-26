@@ -12,7 +12,7 @@ public class BattleshipFrame extends JFrame {
         this.add(panel);
         this.setTitle("Battle Ship");
         this.setResizable(false);
-        this.setBackground(Color.BLUE);
+        this.setBackground(Color.decode("#03fc98"));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setVisible(true);

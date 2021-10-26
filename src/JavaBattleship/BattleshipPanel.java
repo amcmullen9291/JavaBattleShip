@@ -69,11 +69,11 @@ public class BattleshipPanel extends JPanel implements Runnable {
     }
 
     public void draw(Graphics g) {
-        patrolBoat.draw(g);
-        submarine.draw(g);
-        airCraftCarrier.draw(g);
-        destroyer.draw(g);
-        battleShip.draw(g);
+//        patrolBoat.draw(g);
+//        submarine.draw(g);
+//        airCraftCarrier.draw(g);
+//        destroyer.draw(g);
+//        battleShip.draw(g);
     }
 
 
