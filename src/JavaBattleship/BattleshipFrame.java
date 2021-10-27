@@ -16,6 +16,8 @@ public class BattleshipFrame extends JPanel {
 
     public BattleshipFrame() {
         Border border = new LineBorder(Color.RED, 13);
+        Border border2 = new LineBorder(Color.decode("#03fc98"), 13);
+
         JFrame instructions = new JFrame();
         JButton theRules = new JButton("<html><u>The Fleet:</u><br><br>Carrier - 5 Spaces<br>Battleship" +
                 " - 4 Spaces<br>Destroyer - 3 Spaces<br>Submarine - 3 Spaces<br>Patrol Boat - 2 Spaces</html>");
@@ -30,14 +32,14 @@ public class BattleshipFrame extends JPanel {
         instructions.add(theRules);
 
         JFrame motivation = new JFrame();
-        JButton theTalk = new JButton("<html><c>      'players approach the game as essentially <i>one of chance</i>, <br>" +
-                "   targeting squares at random and hoping for a “hit.”<br>" +
-                "   But... <u>is there a better strategy?'</u></c><html>");
+        JButton theTalk = new JButton("<html><c> ' Players approach the game as essentially <b>one of chance</b>;" +
+                "   targeting squares at random and hoping for a “hit.” " +
+                "   But, <u><i>is there a better strategy</i></u> ? '</c><html>");
         motivation.setVisible(true);
         motivation.setLocation(0,300);
         motivation.setSize(390,300);
         theTalk.setBounds(5, 5, 50, 30);
-        theTalk.setBorder(border);
+        theTalk.setBorder(border2);
         motivation.add(theTalk);
         theTalk.setFont(new Font("Arial", Font.PLAIN, 16));
         //Main window below
