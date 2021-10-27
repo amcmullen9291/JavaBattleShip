@@ -93,11 +93,18 @@ public class BattleshipFrame extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Button Clicked");
-//        setForeground(Color.BLACK);
         Object source = e.getSource();
+        double testCorrectGuess = Math.random();
         if (source instanceof Component) {
-            ((Component)source).setBackground(Color.RED);
+            if(testCorrectGuess < .05) {
+                ((Component) source).setBackground(Color.RED);
+                System.out.println("Direct hit!");
+
+            }else{
+                ((Component) source).setBackground(Color.BLUE);
+                System.out.println("A miss.");
+
+            }
         }
     }
 
