@@ -1,26 +1,33 @@
 package JavaBattleship;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
 //@SuppressWarnings("serial")
-public class BattleshipFrame extends JPanel {
+public class BattleshipFrame extends JPanel implements ActionListener {
     private static final int SML_SIDE = 3;
     private static final int SIDE = SML_SIDE * SML_SIDE;
     private static final int GAP = 3;
     private static final Color BG = Color.BLACK;
     private static final Dimension BTN_PREF_SIZE = new Dimension(50, 50);
     private JButton[][] buttons = new JButton[SIDE][SIDE];
+    Ship ships;
+//    ActionListener click;
+    BattleshipFrame targetButton;
 
     public BattleshipFrame() {
         Border border = new LineBorder(Color.RED, 13);
         Border border2 = new LineBorder(Color.decode("#03fc98"), 13);
 
         JFrame instructions = new JFrame();
-        JButton theRules = new JButton("<html><u>The Fleet:</u><br><br>Carrier - 5 Spaces<br>Battleship" +
-                " - 4 Spaces<br>Destroyer - 3 Spaces<br>Submarine - 3 Spaces<br>Patrol Boat - 2 Spaces</html>");
+        JButton theRules = new JButton("<html><u>Find the Fleet:</u><br><br>Carrier - 5 Spaces<br>Battleship" +
+                " - 4 Spaces<br>Destroyer - 3 Spaces<br>Submarine - 2 Spaces<br>Patrol Boat - 1 Spaces<br><br> Choose a cell to get started.</html>");
         theRules.setBorder(border);
         instructions.setVisible(true);
         instructions.setLocation(0,0);
@@ -61,6 +68,7 @@ public class BattleshipFrame extends JPanel {
 //                String text = String.format("[%d, %d]", j, i);
                 buttons[i][j] = new JButton();
                 buttons[i][j].setPreferredSize(BTN_PREF_SIZE);
+                buttons[i][j].addActionListener(this);
                 smallPanels[panelI][panelJ].add(buttons[i][j]);
             }
         }
@@ -82,4 +90,14 @@ public class BattleshipFrame extends JPanel {
             createAndShowGui();
         });
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        System.out.println("Button Clicked");
+    }
+
+//    @Override
+//    public void actionPerformed(ActionEvent e) {
+//        System.out.println("Button Clicked");
+//    }
 }
