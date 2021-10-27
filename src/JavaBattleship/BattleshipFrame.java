@@ -65,7 +65,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
             int panelI = i / SML_SIDE;
             for (int j = 0; j < buttons[i].length; j++) {
                 int panelJ = j / SML_SIDE;
-//                String text = String.format("[%d, %d]", j, i);
+                String text = String.format("[%d, %d]", j, i);
                 buttons[i][j] = new JButton();
                 buttons[i][j].setPreferredSize(BTN_PREF_SIZE);
                 buttons[i][j].addActionListener(this);
@@ -94,6 +94,11 @@ public class BattleshipFrame extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("Button Clicked");
+//        setForeground(Color.BLACK);
+        Object source = e.getSource();
+        if (source instanceof Component) {
+            ((Component)source).setBackground(Color.RED);
+        }
     }
 
 //    @Override
