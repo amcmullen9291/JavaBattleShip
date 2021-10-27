@@ -15,7 +15,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
     private static final int SIDE = SML_SIDE * SML_SIDE;
     private static final int GAP = 3;
     private static final Color BG = Color.BLACK;
-    private static final Dimension BTN_PREF_SIZE = new Dimension(50, 50);
+    private static final Dimension BTN_PREF_SIZE = new Dimension(60, 60);
     private JButton[][] buttons = new JButton[SIDE][SIDE];
     Ship ships;
 //    ActionListener click;
@@ -66,7 +66,8 @@ public class BattleshipFrame extends JPanel implements ActionListener {
             for (int j = 0; j < buttons[i].length; j++) {
                 int panelJ = j / SML_SIDE;
                 String text = String.format("[%d, %d]", j, i);
-                buttons[i][j] = new JButton();
+                buttons[i][j] = new JButton(text);
+                buttons[i][j].setFont(new Font("Arial", Font.PLAIN, 12));
                 buttons[i][j].setPreferredSize(BTN_PREF_SIZE);
                 buttons[i][j].addActionListener(this);
                 smallPanels[panelI][panelJ].add(buttons[i][j]);
@@ -98,16 +99,19 @@ public class BattleshipFrame extends JPanel implements ActionListener {
         if (source instanceof Component) {
             if(testCorrectGuess < .05) {
                 ((Component) source).setBackground(Color.RED);
-                choice(" direct hit!");
+                Object O = e.getSource();
+                JButton b = null;
+                String buttonText = "";
+                b = (JButton)O;
+                choice(b.getText());
 
             }else{
                 ((Component) source).setBackground(Color.BLUE);
-                choice(" miss. Try again");
-
+                choice("a miss. Try again.");
             }
         }
     }
         public void choice(String result){
-            System.out.println("That was a" + result);
+            System.out.println("That was " + result);
         }
 }
