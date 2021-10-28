@@ -113,9 +113,24 @@ public class BattleshipFrame extends JPanel implements ActionListener {
                 String buttonText = "";
                 b = (JButton)O;
                 choice(b.getText());
-                String[] chosenSolution = {"[0,0]", "[5,1]", "[0,1]", "[0,4]", "[0,2]", "[3,3]", "[2,7]"}; //test case
                 String[] solution = new String[7];
-                System.arraycopy(chosenSolution, 0, solution,0,7);
+                switch(placement) {
+                    case 1:
+                        String[] chosenSolution1 = {"[0,0]", "[5,1]", "[0,1]", "[0,4]", "[0,2]", "[3,3]", "[2,7]"}; //test case
+//                        String[] solution = new String[7];
+                        System.arraycopy(chosenSolution1, 0, solution, 0, 7);
+                        break;
+                    case 2:
+                        String[] chosenSolution2 = {"[0,8]", "[2,2]", "[7,3]", "[1,8]", "[0,6]", "[6,1]", "[2,8]"}; //test case
+//                        String[] solution = new String[7];
+                        System.arraycopy(chosenSolution2, 0, solution, 0, 7);
+                        break;
+                    default:
+                        String[] chosenSolution3 = {"[0,1]", "[0,2]", "[0,3]", "[0,4]", "[0,6]", "[0,5]", "[0,7]"}; //test case
+//                        String[] solution = new String[7];
+                        System.arraycopy(chosenSolution3, 0, solution, 0, 7);
+
+                }
                 //use switch statement to copy switchCase array to solution[]
                 //use static int placements for switch
 
@@ -149,7 +164,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
         System.out.println("That was " + result);
     }
     public static void solutionPlacement(){
-        placement = (int)(Math.random()*9-1)+1;
+        placement = (int)(Math.random()*3-1)+1;
     }
 
 
