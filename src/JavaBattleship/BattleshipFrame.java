@@ -33,7 +33,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
 
         JFrame instructions = new JFrame();
         JButton theRules = new JButton("<html><u>Find the Fleet:</u><br><br>Carrier - 5 Spaces<br>Battleship" +
-                " - 4 Spaces<br>Destroyer - 3 Spaces<br>Submarine - 2 Spaces<br>Patrol Boat - 1 Spaces<br><br> Choose a cell to get started.</html>");
+                " - 4 Spaces<br>Destroyer - 3 Spaces<br>Submarine - 3 Spaces<br>Patrol Boat - 2 Spaces<br><br> Let's begin.</html>");
         theRules.setBorder(border);
         instructions.setVisible(true);
         instructions.setLocation(0,0);
@@ -126,9 +126,11 @@ public class BattleshipFrame extends JPanel implements ActionListener {
                         coordinatesLeft-=1;  //add popup for each ship found individually
                         if(coordinatesLeft ==0){
                             JFrame congrats = new JFrame("Congratulations");
-                            JButton newGame = new JButton("Play Again?");
-                            newGame.setBackground(Color.GREEN);
-                            newGame.setForeground(Color.black);
+                            JButton newGame = new JButton("You win.");
+                            newGame.setBackground(Color.WHITE);
+                            newGame.setForeground(Color.BLACK);
+                            newGame.setFont(new Font("Arial", Font.PLAIN, 18));
+                            newGame.setEnabled(false);
                             congrats.setSize(550,150);
                             congrats.setLocation(570,270);
                             congrats.add(newGame);
