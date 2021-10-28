@@ -115,6 +115,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
                 String[] solution = new String[5];
                 System.arraycopy(chosenSolution, 0, solution,0,5);
                 //use switch statement to copy switchCase array to solution[]
+                //use static int placements for switch
 
 //                System.out.println(b.getText().getClass().getSimpleName());
                 for(int w=0; w<solution.length; w++){
@@ -134,9 +135,9 @@ public class BattleshipFrame extends JPanel implements ActionListener {
     }
     public static void solutionPlacement(){
         placements = (int)(Math.random()*9-1)+1;
-        switch(placements){
-            case 1:
-                String[] locations = {"[0,0]", "[0,1]", "[1,0]", "[1,1]", "[1,2]"};
-        }
+//        switch(placements){
+//            case 1:
+//                String[] locations = {"[0,0]", "[0,1]", "[1,0]", "[1,1]", "[1,2]"};
+//        }
     }
 }
