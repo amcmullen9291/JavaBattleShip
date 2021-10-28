@@ -10,6 +10,7 @@ import java.util.Arrays;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+//import static javax.swing.JOptionPane.showMessageDialog;
 
 //@SuppressWarnings("serial")
 public class BattleshipFrame extends JPanel implements ActionListener {
@@ -20,7 +21,8 @@ public class BattleshipFrame extends JPanel implements ActionListener {
     private static final Dimension BTN_PREF_SIZE = new Dimension(60, 60);
     private JButton[][] buttons = new JButton[SIDE][SIDE];
     Point point;
-    static int placements;
+    static int placement;
+    static int coordinatesLeft = 7;
     //    ActionListener click;
 //    BattleshipFrame targetButton;
     static String[] locations;
@@ -95,7 +97,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
             createAndShowGui();
         });
         solutionPlacement();
-        System.out.println("Solution " + placements + " running.");
+        System.out.println("Solution " + placement + " running.");
     }
 
     @Override
@@ -111,9 +113,9 @@ public class BattleshipFrame extends JPanel implements ActionListener {
                 String buttonText = "";
                 b = (JButton)O;
                 choice(b.getText());
-                String[] chosenSolution = {"[0,0]", "[5,1]", "[0,1]", "[0,4]", "[0,2]"}; //test case
-                String[] solution = new String[5];
-                System.arraycopy(chosenSolution, 0, solution,0,5);
+                String[] chosenSolution = {"[0,0]", "[5,1]", "[0,1]", "[0,4]", "[0,2]", "[3,3]", "[2,7]"}; //test case
+                String[] solution = new String[7];
+                System.arraycopy(chosenSolution, 0, solution,0,7);
                 //use switch statement to copy switchCase array to solution[]
                 //use static int placements for switch
 
@@ -121,6 +123,17 @@ public class BattleshipFrame extends JPanel implements ActionListener {
                 for(int w=0; w<solution.length; w++){
                     if(b.getText().contentEquals(solution[w])) {
                         ((Component) source).setBackground(Color.RED);
+                        coordinatesLeft-=1;  //add popup for each ship found individually
+                        if(coordinatesLeft ==0){
+                            JFrame congrats = new JFrame("Congratulations");
+                            JButton newGame = new JButton("Play Again?");
+                            newGame.setBackground(Color.GREEN);
+                            newGame.setForeground(Color.black);
+                            congrats.setSize(550,150);
+                            congrats.setLocation(570,270);
+                            congrats.add(newGame);
+                            congrats.setVisible(true);
+                        }
                         return;
                     }
                     if (!b.getText().contentEquals(solution[w])){
@@ -134,10 +147,8 @@ public class BattleshipFrame extends JPanel implements ActionListener {
         System.out.println("That was " + result);
     }
     public static void solutionPlacement(){
-        placements = (int)(Math.random()*9-1)+1;
-//        switch(placements){
-//            case 1:
-//                String[] locations = {"[0,0]", "[0,1]", "[1,0]", "[1,1]", "[1,2]"};
-//        }
+        placement = (int)(Math.random()*9-1)+1;
     }
+
+
 }
