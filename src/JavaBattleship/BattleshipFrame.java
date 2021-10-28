@@ -21,7 +21,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
     private JButton[][] buttons = new JButton[SIDE][SIDE];
     Point point;
     static int placements;
-//    ActionListener click;
+    //    ActionListener click;
 //    BattleshipFrame targetButton;
     static String[] locations;
 
@@ -101,7 +101,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        double testCorrectGuess = Math.random();
+//        double testCorrectGuess = Math.random();
 
         if (source instanceof Component) {
             if(true) {
@@ -111,7 +111,11 @@ public class BattleshipFrame extends JPanel implements ActionListener {
                 String buttonText = "";
                 b = (JButton)O;
                 choice(b.getText());
-                String[] solution = {"[0,0]", "[5,1]", "[0,1]", "[0,4]", "[0,2]"}; //test case
+                String[] chosenSolution = {"[0,0]", "[5,1]", "[0,1]", "[0,4]", "[0,2]"}; //test case
+                String[] solution = new String[5];
+                System.arraycopy(chosenSolution, 0, solution,0,5);
+                //use switch statement to copy switchCase array to solution[]
+
 //                System.out.println(b.getText().getClass().getSimpleName());
                 for(int w=0; w<solution.length; w++){
                     if(b.getText().contentEquals(solution[w])) {
@@ -128,11 +132,11 @@ public class BattleshipFrame extends JPanel implements ActionListener {
     public void choice(String result){
         System.out.println("That was " + result);
     }
-        public static void solutionPlacement(){
-         placements = (int)(Math.random()*9-1)+1;
-            switch(placements){
-                case 1:
-                    String[] locations = {"[0,0]", "[0,1]", "[1,0]", "[1,1]", "[1,2]"};
-            }
+    public static void solutionPlacement(){
+        placements = (int)(Math.random()*9-1)+1;
+        switch(placements){
+            case 1:
+                String[] locations = {"[0,0]", "[0,1]", "[1,0]", "[1,1]", "[1,2]"};
         }
+    }
 }
