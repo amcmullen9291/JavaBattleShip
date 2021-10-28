@@ -3,8 +3,10 @@ package JavaBattleship;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Arrays;
+//import java.awt.event.KeyAdapter;
+//import java.awt.event.KeyEvent;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -17,9 +19,11 @@ public class BattleshipFrame extends JPanel implements ActionListener {
     private static final Color BG = Color.BLACK;
     private static final Dimension BTN_PREF_SIZE = new Dimension(60, 60);
     private JButton[][] buttons = new JButton[SIDE][SIDE];
-    Ship ships;
+    Point point;
+    static int placements;
 //    ActionListener click;
-    BattleshipFrame targetButton;
+//    BattleshipFrame targetButton;
+    static String[] locations;
 
     public BattleshipFrame() {
         Border border = new LineBorder(Color.RED, 13);
@@ -65,7 +69,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
             int panelI = i / SML_SIDE;
             for (int j = 0; j < buttons[i].length; j++) {
                 int panelJ = j / SML_SIDE;
-                String text = String.format("[%d, %d]", j, i);
+                String text = String.format("[%d,%d]", j,i);
                 buttons[i][j] = new JButton(text);
                 buttons[i][j].setFont(new Font("Arial", Font.PLAIN, 12));
                 buttons[i][j].setPreferredSize(BTN_PREF_SIZE);
@@ -90,28 +94,45 @@ public class BattleshipFrame extends JPanel implements ActionListener {
         SwingUtilities.invokeLater(() -> {
             createAndShowGui();
         });
+        solutionPlacement();
+        System.out.println("Solution " + placements + " running.");
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         double testCorrectGuess = Math.random();
+
         if (source instanceof Component) {
-            if(testCorrectGuess < .05) {
-                ((Component) source).setBackground(Color.RED);
+            if(true) {
+//                ((Component) source).setBackground(Color.RED);
                 Object O = e.getSource();
                 JButton b = null;
                 String buttonText = "";
                 b = (JButton)O;
                 choice(b.getText());
-
-            }else{
-                ((Component) source).setBackground(Color.BLUE);
-                choice("a miss. Try again.");
+                String[] solution = {"[0,0]", "[5,1]", "[0,1]", "[0,4]", "[0,2]"}; //test case
+//                System.out.println(b.getText().getClass().getSimpleName());
+                for(int w=0; w<solution.length; w++){
+                    if(b.getText().contentEquals(solution[w])) {
+                        ((Component) source).setBackground(Color.RED);
+                        return;
+                    }
+                    if (!b.getText().contentEquals(solution[w])){
+                        ((Component) source).setBackground(Color.BLUE);
+                    }
+                };
             }
         }
     }
-        public void choice(String result){
-            System.out.println("That was " + result);
+    public void choice(String result){
+        System.out.println("That was " + result);
+    }
+        public static void solutionPlacement(){
+         placements = (int)(Math.random()*9-1)+1;
+            switch(placements){
+                case 1:
+                    String[] locations = {"[0,0]", "[0,1]", "[1,0]", "[1,1]", "[1,2]"};
+            }
         }
 }
