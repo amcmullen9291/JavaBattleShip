@@ -118,10 +118,18 @@ public class BattleshipFrame extends JPanel implements ActionListener {
                 switch(placement) {
                     case 1:
                         String[] chosenSolution1 = {"[8,4]", "[8,5]", "[1,2]", "[1,3]", "[1,4]", "[0,8]", "[1,8]", "[2,8]", "[3,1]", "[4,1]", "[5,1]", "[6,1]", "[7,1]", "[3,3]", "[3,4]", "[3,5]", "[3,6]"}; //test case
+<<<<<<< HEAD
+=======
+//                        String[] solution = new String[7];
+>>>>>>> f0dd9e3ca944e2d8bed1338483884962466b10ef
                         System.arraycopy(chosenSolution1, 0, solution, 0, 17);
                         break;
                     case 2:
                         String[] chosenSolution2 = {"[0,6]", "[0,7]", "[3,0]", "[3,1]", "[3,2]", "[3,3]", "[6,7]", "[7,7]", "[8,7]", "[3,7]", "[4,7]", "[5,7]", "[8,0]", "[8,1]", "[8,2]", "[8,3]", "[8,4]"}; //test case
+<<<<<<< HEAD
+=======
+//                        String[] solution = new String[7];
+>>>>>>> f0dd9e3ca944e2d8bed1338483884962466b10ef
                         System.arraycopy(chosenSolution2, 0, solution, 0, 17);
                         break;
                     case 3:
