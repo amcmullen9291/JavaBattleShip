@@ -15,13 +15,9 @@ public class BattleshipFrame extends JPanel implements ActionListener {
     private static final Color BG = Color.BLACK;
     private static final Dimension BTN_PREF_SIZE = new Dimension(60, 60);
     private JButton[][] buttons = new JButton[SIDE][SIDE];
-    Point point;
+
     static int placement;
     static int coordinatesLeft = 17;
-    static int movesLeft;
-    //    ActionListener click;
-//    BattleshipFrame targetButton;
-    static String[] locations;
 
     public BattleshipFrame() {
         Border border = new LineBorder(Color.RED, 13);
@@ -53,7 +49,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
         theTalk.setFont(new Font("Arial", Font.PLAIN, 16));
         //Main window below
         setBackground(Color.decode("#03fc98"));
-//        setForeground(Color.decode("#03fc98"));
+
         setLayout(new GridLayout(SML_SIDE, SML_SIDE, GAP, GAP));
         setBorder(BorderFactory.createEmptyBorder(GAP, GAP, GAP, GAP));
         JPanel[][] smallPanels = new JPanel[SML_SIDE][SML_SIDE];
@@ -86,6 +82,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
     }
 
     public static void main(String[] args) {
@@ -124,8 +121,12 @@ public class BattleshipFrame extends JPanel implements ActionListener {
                         System.arraycopy(chosenSolution3, 0, solution, 0, 17);
                         break;
                     case 4:
-                        String[] chosenSolution4 = {"[1,6]", "[0,7]", "[3,0]", "[3,1]", "[3,2]", "[3,3]", "[6,7]", "[7,7]", "[8,7]", "[3,7]", "[4,7]", "[5,7]", "[8,0]", "[8,1]", "[8,2]", "[8,3]", "[8,4]"};
+                        String[] chosenSolution4 = {"[0,0]", "[0,1]", "[0,5]", "[0,6]", "[0,7]", "[1,4]", "[1,5]", "[1,6]", "[4,5]", "[4,6]", "[4,7]", "[4,4]", "[7,0]", "[7,1]", "[7,2]", "[7,3]", "[7,4]"};
                         System.arraycopy(chosenSolution4, 0, solution, 0, 17);
+                        break;
+                    case 5:
+                        String[] chosenSolution5 = {"[1,1]", "[1,2]", "[1,3]", "[3,1]", "[3,2]", "[4,5]", "[4,6]", "[4,7]", "[2,0]", "[2,1]", "[2,2]", "[2,3]", "[2,4]", "[6,5]", "[6,6]", "[6,7]", "[6,8]"};
+                        System.arraycopy(chosenSolution5, 0, solution, 0, 17);
                         break;
                     default:
                         String[] chosenSolutionDefault = {"[0,1]", "[0,2]", "[0,3]", "[0,4]", "[0,6]", "[0,5]", "[0,7]","[2,1]", "[2,2]", "[2,3]", "[2,4]", "[2,6]", "[2,5]", "[2,7]", "[2,8]", "[8,7]" ,"[8,6]"}; //test case
@@ -135,7 +136,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
                 for(int w=0; w<solution.length; w++){
                     if(b.getText().contentEquals(solution[w])) {
                         ((Component) source).setBackground(Color.RED);
-                        coordinatesLeft-=1;  //add popup for each ship found individually
+                        coordinatesLeft-=1;
                         if(coordinatesLeft ==0){
                             JFrame congrats = new JFrame("Congratulations");
                             JButton newGame = new JButton("You win.");
@@ -161,8 +162,6 @@ public class BattleshipFrame extends JPanel implements ActionListener {
         System.out.println("That was " + result);
     }
     public static void solutionPlacement(){
-        placement = (int)(Math.random()*3-1)+1;
+        placement = (int)(Math.random()*5-1)+1;
     }
-
-
 }
