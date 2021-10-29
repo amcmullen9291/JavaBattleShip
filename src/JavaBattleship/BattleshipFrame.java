@@ -63,7 +63,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
             int panelI = i / SML_SIDE;
             for (int j = 0; j < buttons[i].length; j++) {
                 int panelJ = j / SML_SIDE;
-                String text = String.format("[%d,%d]", j,i);
+                String text = String.format("[%d,%d]", i,j);
                 buttons[i][j] = new JButton(text);
                 buttons[i][j].setFont(new Font("Arial", Font.PLAIN, 12));
                 buttons[i][j].setPreferredSize(BTN_PREF_SIZE);
