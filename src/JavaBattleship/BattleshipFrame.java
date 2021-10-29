@@ -162,6 +162,6 @@ public class BattleshipFrame extends JPanel implements ActionListener {
         System.out.println("That was " + result);
     }
     public static void solutionPlacement(){
-        placement = (int)(Math.random()*5-1)+1;
+        placement = (int)(Math.random()*6-1)+1;
     }
 }
