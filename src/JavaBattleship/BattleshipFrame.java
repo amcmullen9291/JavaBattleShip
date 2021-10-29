@@ -136,6 +136,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
                 for(int w=0; w<solution.length; w++){
                     if(b.getText().contentEquals(solution[w])) {
                         ((Component) source).setBackground(Color.RED);
+                        ((Component) source).setEnabled(false);
                         coordinatesLeft-=1;
                         if(coordinatesLeft ==0){
                             JFrame congrats = new JFrame("Congratulations");
