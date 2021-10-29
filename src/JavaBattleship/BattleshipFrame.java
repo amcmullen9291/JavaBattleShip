@@ -118,18 +118,24 @@ public class BattleshipFrame extends JPanel implements ActionListener {
                 switch(placement) {
                     case 1:
                         String[] chosenSolution1 = {"[8,4]", "[8,5]", "[1,2]", "[1,3]", "[1,4]", "[0,8]", "[1,8]", "[2,8]", "[3,1]", "[4,1]", "[5,1]", "[6,1]", "[7,1]", "[3,3]", "[3,4]", "[3,5]", "[3,6]"}; //test case
-//                        String[] solution = new String[7];
                         System.arraycopy(chosenSolution1, 0, solution, 0, 17);
                         break;
                     case 2:
                         String[] chosenSolution2 = {"[0,6]", "[0,7]", "[3,0]", "[3,1]", "[3,2]", "[3,3]", "[6,7]", "[7,7]", "[8,7]", "[3,7]", "[4,7]", "[5,7]", "[8,0]", "[8,1]", "[8,2]", "[8,3]", "[8,4]"}; //test case
-//                        String[] solution = new String[7];
                         System.arraycopy(chosenSolution2, 0, solution, 0, 17);
                         break;
+                    case 3:
+                        String[] chosenSolution3 = {"[0,3]", "[0,4]", "[0,5]", "[0,6]", "[2,5]", "[2,6]", "[2,7]", "[2,8]", "[2,4]", "[4,3]", "[4,4]", "[4,5]", "[6,4]", "[7,4]", "[8,4]", "[8,2]", "[8,3]"}; //test case
+                        System.arraycopy(chosenSolution3, 0, solution, 0, 17);
+                        break;
+                    case 4:
+                        String[] chosenSolution4 = {"[1,6]", "[0,7]", "[3,0]", "[3,1]", "[3,2]", "[3,3]", "[6,7]", "[7,7]", "[8,7]", "[3,7]", "[4,7]", "[5,7]", "[8,0]", "[8,1]", "[8,2]", "[8,3]", "[8,4]"}; //test case
+                        System.arraycopy(chosenSolution4, 0, solution, 0, 17);
+                        break;
+
                     default:
-                        String[] chosenSolution3 = {"[0,1]", "[0,2]", "[0,3]", "[0,4]", "[0,6]", "[0,5]", "[0,7]"}; //test case
-//                        String[] solution = new String[7];
-                        System.arraycopy(chosenSolution3, 0, solution, 0, 7);
+                        String[] chosenSolutionDefault = {"[0,1]", "[0,2]", "[0,3]", "[0,4]", "[0,6]", "[0,5]", "[0,7]","[2,1]", "[2,2]", "[2,3]", "[2,4]", "[2,6]", "[2,5]", "[2,7]", "[2,8]", "[8,7]" ,"[8,6]"}; //test case
+                        System.arraycopy(chosenSolutionDefault, 0, solution, 0, 7);
 
                 }
                 //use switch statement to copy switchCase array to solution[]
