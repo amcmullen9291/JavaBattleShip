@@ -130,7 +130,7 @@ public class BattleshipFrame extends JPanel implements ActionListener {
                         break;
                     default:
                         String[] chosenSolutionDefault = {"[0,1]", "[0,2]", "[0,3]", "[0,4]", "[0,6]", "[0,5]", "[0,7]","[2,1]", "[2,2]", "[2,3]", "[2,4]", "[2,6]", "[2,5]", "[2,7]", "[2,8]", "[8,7]" ,"[8,6]"}; //test case
-                        System.arraycopy(chosenSolutionDefault, 0, solution, 0, 7);
+                        System.arraycopy(chosenSolutionDefault, 0, solution, 0, 17);
 
                 }
                 for(int w=0; w<solution.length; w++){
